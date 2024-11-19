@@ -47,7 +47,7 @@ watch(
           </div>
 
           <!-- Body -->
-          <div class="p-4 px-8 flex-grow overflow-auto">
+          <div class="p-4 px-8 flex-grow overflow-auto flex justify-center">
             <slot></slot>
           </div>
 

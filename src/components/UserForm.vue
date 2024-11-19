@@ -12,7 +12,7 @@ onMounted(async() => {
   try {
       isLoading.value = true
         if (props.userid > 0) {
-            const { data, status } = await repository.getUser("props.userid");
+            const { data, status } = await repository.getUser(props.userid);
             if (status === 200) {
                 userDetails.value = data
             }
@@ -92,7 +92,8 @@ defineExpose({
 
 <template>
     <Loader v-if="isLoading" class="min-h-full min-w-full bg-transparent"/>
-    <form @submit.prevent="submitForm" class="grid gap-4 sm:grid-cols-1 lg:grid-cols-2" v-else-if="Object.keys(userDetails).length > 0">
+    <div v-else-if="Object.keys(userDetails).length > 0">
+    <form @submit.prevent="submitForm" class="grid gap-4 sm:grid-cols-1 lg:grid-cols-2">
       <div>
         <label class="block mb-1 font-medium text-gray-700">Name <span class="text-red-500">*</span></label>
         <input
@@ -125,7 +126,7 @@ defineExpose({
 
       <div class="lg:col-span-2">
         <label class="block mb-1 font-medium text-gray-700">Address</label>
-        <div class="grid gap-2 sm:grid-cols-1 lg:grid-cols-2">
+        <div class="grid gap-2 grid-cols-2">
           <input
             v-model="userDetails.address.street"
             placeholder="Street"
@@ -149,6 +150,7 @@ defineExpose({
         </div>
       </div>
     </form>
+    </div>
     <div class="flex flex-col min-h-screen items-center justify-center" v-else>
       <h1 class="text-xl">Something went wrong,Try again</h1>
       <button
