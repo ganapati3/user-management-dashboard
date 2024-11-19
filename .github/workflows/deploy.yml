@@ -43,6 +43,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git configuration
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
@@ -54,3 +62,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          target_branch: gh-pages
