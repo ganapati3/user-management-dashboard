@@ -1,17 +1,11 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import Dashboard from './views/Dashboard.vue';
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="min-h-screen sm:w-[90vw] w-screen flex justify-center">
+    <Dashboard />
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
