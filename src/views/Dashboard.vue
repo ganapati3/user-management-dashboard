@@ -28,6 +28,7 @@ const fetchUsers = async () => {
     }
 };
 
+// fetching available records after mounting component on dom
 onMounted(async () => {
     await fetchUsers()
 })
@@ -46,7 +47,7 @@ const editUser = (id) => {
     showForm.value = true;
 };
 
-// Delete a user
+// Delete a user after confirming user (to avoid mistake click from client)
 const deleteUserAction = async (id) => {
     try {
         const isApproved = confirm(
@@ -85,10 +86,8 @@ const saveUser = async (user) => {
     }
 };
 
-
 const closeForm = () => {
     showForm.value = false;
-    console.log('sdflj')
 };
 
 const handleReload = () => {

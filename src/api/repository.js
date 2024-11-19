@@ -2,7 +2,7 @@ import { useAxios } from "../plugins/useAxios";
 
 const axios = useAxios();
 
-
+// handling all apis from a separate file to avoid confusion for any changes in the api
 const repository = {
     getUsers : () => axios.get('/users'),
     addUser : (user) => axios.post('/users', user),
