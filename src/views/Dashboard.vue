@@ -120,7 +120,7 @@ const handleReload = () => {
             <button
             @click="userformRef.submitForm"
             type="submit"
-            :disabled="isSubmitting"
+            :disabled="isSubmitting || !userformRef?.userDetails"
             class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 flex gap-2 items-center"
             >
                 <div v-if="isSubmitting" class="border-2 border-gray-200 h-5 w-5 rounded-full border-t-blue-500 animate-spin"></div>

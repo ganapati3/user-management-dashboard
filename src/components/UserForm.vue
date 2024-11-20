@@ -52,14 +52,14 @@ const errors = ref({
 const validateForm = () => {
   let valid = true;
 
-  if (userDetails.value.name && !userDetails.value.name.trim() ) {
+  if (!userDetails.value.name.trim() ) {
     errors.value.name = "Name is required";
     valid = false;
   } else {
     errors.value.name = "";
   }
 
-  if (userDetails.value.username && !userDetails.value.username.trim()) {
+  if (!userDetails.value.username.trim()) {
     errors.value.username = "Username is required";
     valid = false;
   } else {
@@ -86,6 +86,7 @@ const submitForm = () => {
 
 defineExpose({
   submitForm,
+  userDetails
 });
 
 </script>
